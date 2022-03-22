@@ -8,3 +8,15 @@ pamatyti jo pateikto svorio konvertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
+document.querySelector("form").addEventListener("submit", e => {
+    e.preventDefault()
+    let kg = Number(document.querySelector("#search").value)
+    let poundConverter = kg * 2.2046;
+    let gramConverter = kg / 0.0010000;
+    let ozConverter = kg * 35.274;
+    document.querySelector("#output").innerHTML = `
+    <h1>${poundConverter} Svarai</h1>
+    <h1>${gramConverter} Gramai</h1>
+    <h1>${ozConverter} Uncijos</h1>
+    `
+})
