@@ -11,3 +11,25 @@ Pastaba: Informacija apie user'į (jo kortelė) bei turi turėti bent minimalų 
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+document.querySelector(".btn-container").addEventListener("click", e => {
+    e.preventDefault()
+    fetch(ENDPOINT)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            data.forEach(element => isvestiDuomenis(element))
+        })
+
+    // data.forEach(movie => isvestiFilmus(movie))
+    idMessage = document.querySelector("#message")
+    idMessage.style.display = "none";
+
+})
+let isvestiDuomenis = (duomenys) => {
+    document.querySelector("#output").innerHTML += `
+    <div>
+    <h2>${duomenys.login}: </h2>
+    <span>${duomenys.avatar_url}</span>
+    </div>
+    `
+}
