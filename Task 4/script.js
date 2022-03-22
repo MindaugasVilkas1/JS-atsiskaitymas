@@ -10,3 +10,26 @@ bent minimalų stilių;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'cars.json';
+fetch(ENDPOINT)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        data.forEach(element => isvestiMasinas(element))
+    })
+
+
+let isvestiMasinas = (masinos) => {
+        document.querySelector("#output").innerHTML += `
+    <div>
+    <h2>${masinos.brand}: </h2>
+    <p>
+    Modelis: ${masinos.models.map(models=>`<span> ${models}</span>`)}<hr>
+    </p>
+    </div>
+    `
+}
+
+/* <p>
+Tipas:${filmas.tipas.map(tipas=>`<span> ${tipas}</span>`)}
+</p>
+*/
