@@ -26,10 +26,10 @@ function getUserAverageAge(arr) {
 }
 console.log(getUserAverageAge(users))
 
-getUserAverageAge = (array) => {
+getUserName = (array) => {
     gautiVardus = []
     array.forEach(element => gautiVardus.push(element.name))
     return gautiVardus
 
 }
-console.log(getUserAverageAge(users))
+console.log(getUserName(users))
